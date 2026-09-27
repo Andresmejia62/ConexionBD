@@ -1,0 +1,42 @@
+create database bdprueba
+
+
+create table estudiante
+(
+id integer generated always as identity primary key,
+nombre varchar(100) not null,
+correo varchar(50)
+);
+
+
+insert into estudiante (nombre, correo) values
+('Ana Martínez', 'ana.martinez@correo.com'),
+('Carlos López', 'carlos.lopez@correo.com'),
+('María Fernández', 'maria.fernandez@correo.com'),
+('José Ramírez', 'jose.ramirez@correo.com'),
+('Lucía Torres', 'lucia.torres@correo.com');
+
+
+select * from estudiante
+
+alter table estudiante
+    add column carrera varchar(100),
+    add column telefono varchar(20),
+    add column edad integer,
+    add column fecha_ingreso date,
+    add column promedio decimal(5,2);
+
+delete from estudiante
+where carrera is null
+   or telefono is null
+   or edad is null
+   or fecha_ingreso is null
+   or promedio is null;
+
+insert into estudiante (nombre, correo, carrera, telefono, edad, fecha_ingreso, promedio)
+values
+    ('Ana Gómez', 'ana.gomez@uam.edu.ni', 'Ingeniería en Sistemas', '88451234', 21, '2023-02-15', 87.50),
+    ('Carlos Martínez', 'carlos.martinez@uam.edu.ni', 'Derecho', '77896543', 23, '2022-08-10', 79.20),
+    ('María López', 'maria.lopez@uam.edu.ni', 'Medicina', '86223311', 20, '2024-01-20', 92.75),
+    ('José Rodríguez', 'jose.rodriguez@uam.edu.ni', 'Arquitectura', '85567890', 22, '2023-07-05', 84.00),
+    ('Valeria Sánchez', 'valeria.sanchez@uam.edu.ni', 'Ingeniería en Sistemas', '84112233', 19, '2024-08-15', 90.10);
